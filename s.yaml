@@ -18,10 +18,10 @@ services:
         timeout: 60
         codeUri: ./
         startCommand: npm start          # 关键：让 FC 用 npm start 起服务
-        port: 9000                       # 关键：告诉 FC 函数监听 9000
+        port: 8000                       # 关键：告诉 FC 函数监听 9000
         environmentVariables:
           NODE_ENV: production
-          PORT: 9000                     # 同时给 Next.js 传端口
+          PORT: 8000                     # 同时给 Next.js 传端口
       triggers:
         - name: http
           type: http
