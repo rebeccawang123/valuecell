@@ -31,3 +31,12 @@ services:
       customDomains:
         - domainName: auto
           protocol: HTTP
+          routeConfigs:
+            - path: /*
+              methods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+              functionName: valuecell-func
+              qualifier: LATEST
