@@ -1,0 +1,31 @@
+edition: 1.0.0
+name: valuecell
+access: default
+vars:
+  region: cn-hangzhou
+services:
+  valuecell:
+    component: fc
+    props:
+      region: ${vars.region}
+      service:
+        name: valuecell-svc
+      function:
+        name: valuecell-func
+        runtime: nodejs18
+        handler: npx.next.start
+        memorySize: 512
+        timeout: 60
+        codeUri: ./
+        environmentVariables:
+          NODE_ENV: production
+          PORT: 3000
+      triggers:
+        - name: http
+          type: http
+          config:
+            authType: anonymous
+            methods: [GET, POST, PUT, DELETE]
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
